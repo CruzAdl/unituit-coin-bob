@@ -56,8 +56,6 @@ ui <- fluidPage(
 # Define server logic
 server <- function(input, output) {
   
- 
-  
   results <- eventReactive(input$simButton, {
     results_matrix <- simulate_game(input$numFlips, input$numSims)
     data.frame(Alice = results_matrix[1, ], Bob = results_matrix[2, ])
@@ -157,11 +155,13 @@ server <- function(input, output) {
     bob_var <- var(results_df$Bob)
     
     # Prepare a summary table
-    summary_table <- data.frame(Alice=c(alice_wins, alice_mean,alice_sd,alice_var),
-                     Bob=c(bob_wins,bob_wins, bob_mean,bob_sd,bob_var)
-                     )
+    summary_table <- data.frame(
+      Alice=c(alice_wins, alice_mean, alice_sd, alice_var),
+      Bob=c(bob_wins, bob_mean, bob_sd, bob_var))
+    rownames(summary_table) <- c("Wins","Mean","SD","Var")
+    
     summary_table  # Return the table for rendering
-  }, align = 'c')  # Center align the table columns
+  },rownames = T ,align = 'c')  # Center align the table columns
   
 }
 
