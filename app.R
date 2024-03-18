@@ -25,14 +25,14 @@ ui <- fluidPage(
       numericInput(
         inputId = 'numFlips', 
         label = 'Number of Coin Flips:', 
-        value = 100, min = 0, max = 200, 
+        value = 2, min = 0, max = 200, 
         step = 1, 
         width = '100%'
       ),
       numericInput(
         inputId = 'numSims', 
         label = 'Number of Simulations:', 
-        value = 10000, min = 0, max = 20000, 
+        value = 5000, min = 0, max = 20000, 
         step = 100, 
         width = '100%'
       ),
