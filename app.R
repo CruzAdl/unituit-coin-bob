@@ -1,10 +1,9 @@
 library(shiny)
 library(ggplot2)
-library(htmltools); library(tinytable);
-library(future); library(parallel);library(future.apply);
+library(htmltools);
+library(future); library(future.apply);
 
-# Plan for future package to use multicore, adjust according to your system
-#plan(multicore, workers = detectCores() - 1)
+#library(parallel);plan(multisession, workers = detectCores() - 1)
 
 # Simulation function with parallel computation
 simulate_game <- function(flip_count = 100, sims = 10000) {
